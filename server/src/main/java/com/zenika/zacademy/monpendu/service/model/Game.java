@@ -14,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(of="uuid")
+@EqualsAndHashCode(of="id")
 
 @Entity
 @Table(name="game")
@@ -22,9 +22,9 @@ public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID uuid;
+    private UUID id;
 
-    @Column(name="word_to_guess")
+    @Column(name="word_to_guess", nullable = false, length = 50)
     private String wordToGuess;
 
     @Column(name="description")

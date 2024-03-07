@@ -10,7 +10,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "uuid")
+@EqualsAndHashCode(of = "id")
 
 @Entity
 @Table(name = "round")
@@ -18,15 +18,18 @@ public class Round {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID uuid;
+    private UUID id;
 
-    @Column(name="attempt")
-    private Integer atttempt;
+    @Column(name="attempt", nullable = false)
+    private Integer attempt;
 
-    @Column(name="state")
+    @Column(name="letters_searched", nullable = false, length = 30)
+    private String lettersSearched;
+
+    @Column(name="state", nullable = false, length = 30)
     private String state;
 
-    @OneToOne
-    @JoinColumn(name= "game_uuid")
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name= "game_id")
     private Game game;
 }
