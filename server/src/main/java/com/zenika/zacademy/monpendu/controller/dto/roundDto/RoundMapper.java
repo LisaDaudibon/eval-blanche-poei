@@ -10,7 +10,6 @@ public class RoundMapper {
                 .id(from.getId())
                 .attempt(from.getAttempt())
                 .lettersSearched(from.getLettersSearched())
-                .game(from.getGame())
                 .build();
     }
 }
