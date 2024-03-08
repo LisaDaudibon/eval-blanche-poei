@@ -19,7 +19,7 @@ public class RoundService {
         return this.roundRepository.findAll();
     }
 
-    private Round findOneById (UUID id) throws NotFoundException {
+    public Round findOneById (UUID id) throws NotFoundException {
         return this.roundRepository.findById(id).orElseThrow(NotFoundException::new);
     }
 }
