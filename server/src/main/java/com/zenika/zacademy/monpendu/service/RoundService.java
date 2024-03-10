@@ -22,4 +22,13 @@ public class RoundService {
     public Round findOneById (UUID id) throws NotFoundException {
         return this.roundRepository.findById(id).orElseThrow(NotFoundException::new);
     }
+
+    public Round create (Round roundCreated) {
+        roundCreated.setAttempt(0);
+        roundCreated.setLettersSearched("");
+        roundCreated.setState("ongoing");
+        return this.roundRepository.save(roundCreated);
+    }
+
+
 }

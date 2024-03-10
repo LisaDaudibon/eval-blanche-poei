@@ -14,4 +14,6 @@ public class RoundDtoOut {
     private UUID id;
     private String lettersSearched;
     private int attempt;
+    private UUID gameId;
+    private String gameDescription;
 }
