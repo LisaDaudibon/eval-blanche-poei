@@ -16,4 +16,8 @@ export class GameService {
       //   tap((games) => this.games = games)
       // )
    }
+
+   fetchGameById (gameId : string): Observable<Game> {
+    return this._httpClient.get<Game>(`/api/games/${gameId}`)
+   }
 }

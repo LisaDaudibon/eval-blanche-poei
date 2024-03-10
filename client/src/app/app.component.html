@@ -1,6 +1,5 @@
 <main>
   <div class="py-4 container">
-    <p *ngFor="let game of $fetchedGames | async; trackBy: trackById">{{game.wordToGuess}} </p>
-    <p>hello</p>
+    <router-outlet></router-outlet>
   </div>
 </main>

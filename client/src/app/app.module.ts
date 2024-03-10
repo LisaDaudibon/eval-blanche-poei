@@ -4,14 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AzertyKeyboardComponent } from './components/azerty-keyboard/azerty-keyboard.component';
+import { GameBoardComponent } from './views/game-board/game-board.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AzertyKeyboardComponent,
+    GameBoardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     HttpClientModule
   ],
   providers: [],

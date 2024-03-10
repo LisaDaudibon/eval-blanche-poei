@@ -9,13 +9,5 @@ import { Observable } from 'rxjs';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  $fetchedGames: Observable<Game[]>;
-  constructor( private _gameService: GameService) { 
-    this.$fetchedGames = this._gameService.$fetchGames
-  }
-
-  trackById ( index: string, game: Game): string {
-    return game.id;
-  }
 
 }
