@@ -1,3 +1,13 @@
 <p >
   <app-create-round-button *ngFor="let game of $fetchedGames | async; trackBy: trackByGameId" (click)="launchAGame(game.id)" [data]="game"></app-create-round-button>
 </p>
+
+
+<p *ngFor="let round of $fetchedRounds | async; trackBy: trackByRoundId">
+  <ng-container *ngIf="round.state === 'ONGOING'">
+    <button class="btn btn-primary rounded-pill" (click)="redirectToRound(round.id)">
+      {{round.id}}
+    </button> 
+  </ng-container>
+</p>
+

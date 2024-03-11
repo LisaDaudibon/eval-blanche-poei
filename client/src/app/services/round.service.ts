@@ -13,7 +13,7 @@ export class RoundService {
     this.$fetchRounds = this._httpClient.get<Round[]>(`/api/rounds`)
   }
 
-  fetchRound (roundId: string) {
+  fetchRound (roundId: string): Observable<Round>{
     return this._httpClient.get<Round>(`/api/rounds/${roundId}`)
   }
 }
