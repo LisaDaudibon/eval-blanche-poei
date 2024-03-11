@@ -1,8 +1,10 @@
 package com.zenika.zacademy.monpendu.service;
 
 import com.zenika.zacademy.monpendu.repository.GameRepository;
+import com.zenika.zacademy.monpendu.repository.RoundRepository;
 import com.zenika.zacademy.monpendu.service.exception.NotFoundException;
 import com.zenika.zacademy.monpendu.service.model.Game;
+import com.zenika.zacademy.monpendu.service.model.Round;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,7 @@ import java.util.UUID;
 @Service
 public class GameService {
     private final GameRepository gameRepository;
+    private final RoundRepository roundRepository;
 
     public List<Game> findAll () {
         return this.gameRepository.findAll();
@@ -21,5 +24,9 @@ public class GameService {
 
     public Game findById (UUID id) throws NotFoundException {
         return this.gameRepository.findById(id).orElseThrow(NotFoundException::new);
+    }
+
+    public UUID createRound (UUID id) throws NotFoundException{
+        return this.roundRepository.save(Round.builder().game(this.findById(id)).build()).getId();
     }
 }

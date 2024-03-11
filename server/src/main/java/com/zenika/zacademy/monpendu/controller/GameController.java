@@ -2,11 +2,7 @@ package com.zenika.zacademy.monpendu.controller;
 
 import com.zenika.zacademy.monpendu.controller.dto.gameDto.GameDtoOut;
 import com.zenika.zacademy.monpendu.controller.dto.gameDto.GameMapper;
-import com.zenika.zacademy.monpendu.controller.dto.roundDto.RoundDtoIn;
-import com.zenika.zacademy.monpendu.controller.dto.roundDto.RoundDtoOut;
-import com.zenika.zacademy.monpendu.controller.dto.roundDto.RoundMapper;
 import com.zenika.zacademy.monpendu.service.GameService;
-import com.zenika.zacademy.monpendu.service.RoundService;
 import com.zenika.zacademy.monpendu.service.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -25,14 +21,12 @@ public class GameController {
     private final GameService gameService;
     private final GameMapper gameMapper;
 
-    private final RoundService roundService;
-    private final RoundMapper roundMapper;
-
     private final Logger logger = LoggerFactory.getLogger(GameController.class);
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<GameDtoOut> findAll() {
+        logger.info("Show a list of all games");
         return this.gameService.findAll().stream()
                 .map(gameMapper::toDto)
                 .toList();
@@ -41,13 +35,14 @@ public class GameController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
     public GameDtoOut findById(@PathVariable UUID id) throws NotFoundException {
+        logger.info("Show the game with id ${id}");
         return this.gameMapper.toDto(this.gameService.findById(id));
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{id}/rounds")
-    public RoundDtoOut create( @PathVariable UUID id, @RequestBody RoundDtoIn roundCreated) throws NotFoundException {
-        roundCreated.setGameId(id);
-        return this.roundMapper.toDto(this.roundService.create(this.roundMapper.toModel(roundCreated)));
+    public UUID create( @PathVariable UUID id ) throws NotFoundException {
+        logger.info("Create a new round");
+        return this.gameService.createRound(id);
     }
 }
