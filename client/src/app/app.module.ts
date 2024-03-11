@@ -7,12 +7,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AzertyKeyboardComponent } from './components/azerty-keyboard/azerty-keyboard.component';
 import { GameBoardComponent } from './views/game-board/game-board.component';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AzertyKeyboardComponent,
-    GameBoardComponent
+    GameBoardComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

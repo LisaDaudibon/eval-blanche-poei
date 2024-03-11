@@ -9,11 +9,11 @@ import { Round } from '../models/round';
 export class RoundService {
   $fetchRounds: Observable<Round[]>
 
-  constructor(private httpClient: HttpClient) {
-    this.$fetchRounds = this.httpClient.get<Round[]>(`/api/rounds`)
+  constructor(private _httpClient: HttpClient) {
+    this.$fetchRounds = this._httpClient.get<Round[]>(`/api/rounds`)
   }
 
   fetchRound (roundId: string) {
-    return this.httpClient.get<Round>(`/api/rounds/${roundId}`)
+    return this._httpClient.get<Round>(`/api/rounds/${roundId}`)
   }
 }
