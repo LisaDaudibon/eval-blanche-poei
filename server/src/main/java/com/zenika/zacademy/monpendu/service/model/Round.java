@@ -1,8 +1,10 @@
 package com.zenika.zacademy.monpendu.service.model;
 
+import com.zenika.zacademy.monpendu.repository.SearchLettersConverter;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,16 +23,25 @@ public class Round {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+
     @Column(name="attempt", nullable = false)
-    private Integer attempt;
+    @Builder.Default
+    private Integer attempt = 0;
+
 
     @Column(name="letters_searched", nullable = false, length = 30)
-    private String lettersSearched;
+    @Convert(converter = SearchLettersConverter.class)
+    @Builder.Default
+    private List<String> lettersSearched = new ArrayList<>();
 
+    @Builder.Default
     @Column(name="state", nullable = false, length = 30)
-    private String state;
+    private String state = "ONGOING";
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name= "game_id")
     private Game game;
+
+    @Transient
+    private String roundWord;
 }

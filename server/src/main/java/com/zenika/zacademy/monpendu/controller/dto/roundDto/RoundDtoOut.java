@@ -1,8 +1,8 @@
 package com.zenika.zacademy.monpendu.controller.dto.roundDto;
 
-import com.zenika.zacademy.monpendu.service.model.Game;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -12,8 +12,8 @@ import java.util.UUID;
 @Builder
 public class RoundDtoOut {
     private UUID id;
-    private String lettersSearched;
+    private String roundWord;
+    private List lettersSearched;
     private int attempt;
-    private UUID gameId;
-    private String gameDescription;
+    private String state;
 }

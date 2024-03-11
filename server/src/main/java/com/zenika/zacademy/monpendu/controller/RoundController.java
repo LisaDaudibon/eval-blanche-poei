@@ -4,6 +4,7 @@ import com.zenika.zacademy.monpendu.controller.dto.roundDto.RoundDtoOut;
 import com.zenika.zacademy.monpendu.controller.dto.roundDto.RoundMapper;
 import com.zenika.zacademy.monpendu.service.RoundService;
 import com.zenika.zacademy.monpendu.service.exception.NotFoundException;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,4 +38,13 @@ public class RoundController {
     public RoundDtoOut findById(@PathVariable UUID id ) throws NotFoundException {
         return this.roundMapper.toDto(this.roundService.findOneById(id));
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @Operation(summary = "Play a letter")
+    @PostMapping("/{id}/searched/{c}")
+    public RoundDtoOut updateLetterGuessed ( @PathVariable UUID id, @PathVariable("c") String letterGuessed ) throws NotFoundException {
+        logger.info("Play a letter");
+        return this.roundMapper.toDto(this.roundService.guessedLetter(id, letterGuessed));
+    }
+
 }
