@@ -9,6 +9,7 @@ import { GameBoardComponent } from './views/game-board/game-board.component';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './views/home/home.component';
+import { CreateRoundButtonComponent } from './components/create-round-button/create-round-button.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './views/home/home.component';
     AzertyKeyboardComponent,
     GameBoardComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    CreateRoundButtonComponent
   ],
   imports: [
     BrowserModule,

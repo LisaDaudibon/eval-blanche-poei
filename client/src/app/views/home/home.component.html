@@ -1,4 +1,3 @@
-<p *ngFor="let game of $fetchedGames | async; trackBy: trackById">
-  <button class="btn btn-primary rounded-pill"> {{game.id}}</button> </p>
-
-<ng-template #elseBlock><p>pas de jeu</p></ng-template>
+<p >
+  <app-create-round-button *ngFor="let game of $fetchedGames | async; trackBy: trackByGameId" (click)="launchAGame(game.id)" [data]="game"></app-create-round-button>
+</p>

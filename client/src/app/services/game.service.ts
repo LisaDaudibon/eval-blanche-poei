@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Game } from '../models/game';
 import { tap } from 'cypress/types/lodash';
+import { Round } from '../models/round';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,11 @@ export class GameService {
       // )
    }
 
-   fetchGameById (gameId : string): Observable<Game> {
+  fetchGameById (gameId : string): Observable<Game> {
     return this._httpClient.get<Game>(`/api/games/${gameId}`)
-   }
+  }
+
+  createRoundById (gameId: string): Observable<string> {
+    return this._httpClient.post<string>(`/api/games/${gameId}/rounds`, {})
+  }
 }
