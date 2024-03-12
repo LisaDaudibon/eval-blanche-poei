@@ -1,8 +1,10 @@
 <h1 class="text-center">Mon pendu</h1>
 
-
-
-<h2>Créer une partie:</h2>
+<div class="text-center ">
+  <h2 class="btn btn-primary rounded-pill" routerLink="/newgame">Créer un jeu </h2> 
+</div>
+*
+<h2>Créer une partie</h2>
 <p class="row" >
   <ng-container *ngFor="let game of $fetchedGames | async; trackBy: trackByGameId">
     <div class="col-4">

@@ -25,4 +25,8 @@ export class GameService {
   createRoundById (gameId: string): Observable<string> {
     return this._httpClient.post<string>(`/api/games/${gameId}/rounds`, {})
   }
+
+  createGame (game: Game): Observable<Game> {
+    return this._httpClient.post<Game>(`/api/games`, game)
+  }
 }

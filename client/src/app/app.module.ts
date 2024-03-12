@@ -11,6 +11,9 @@ import { HomeComponent } from './views/home/home.component';
 import { CreateRoundButtonComponent } from './components/create-round-button/create-round-button.component';
 import { KeyBoardButtonComponent } from './components/keyboard-button/keyboard-button.component';
 import { RoundCardComponent } from './components/round-card/round-card.component';
+import { CreateGameComponent } from './components/create-game/create-game.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NewGameComponent } from './views/new-game/new-game.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +23,16 @@ import { RoundCardComponent } from './components/round-card/round-card.component
     HomeComponent,
     CreateRoundButtonComponent,
     KeyBoardButtonComponent,
-    RoundCardComponent
+    RoundCardComponent,
+    CreateGameComponent,
+    NewGameComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
