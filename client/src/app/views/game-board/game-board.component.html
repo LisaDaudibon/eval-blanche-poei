@@ -3,10 +3,14 @@
     <app-round-card  [round]="round"></app-round-card>
     <ng-container *ngIf="round.state === 'ONGOING'">
       <p>Choisis ta lettre:</p>
-      <div class="card-body justify-content-center" style="max-width: 500px;">
-        <ng-container  *ngFor="let letter of keyboard; trackByLetter ">
-          <app-keyboard-button [letter]="letter" (onChooseLetter)="sendFetchedLetter($event)"></app-keyboard-button>
-        </ng-container>
+      <div class="card-body justify-content-center">
+        <app-keyboard-button *ngFor="let letter of firstRowKeyboard; trackByLetter " [letter]="letter" (onChooseLetter)="sendFetchedLetter($event)"></app-keyboard-button>
+      </div>
+      <div class="card-body justify-content-center">
+        <app-keyboard-button *ngFor="let letter of secondRowKeyboard; trackByLetter " [letter]="letter" (onChooseLetter)="sendFetchedLetter($event)"></app-keyboard-button>
+      </div>
+      <div class="card-body justify-content-center">
+        <app-keyboard-button *ngFor="let letter of thirdRowKeyboard; trackByLetter " [letter]="letter" (onChooseLetter)="sendFetchedLetter($event)"></app-keyboard-button>
       </div>
     </ng-container>
   </ng-container>

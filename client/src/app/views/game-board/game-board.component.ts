@@ -16,7 +16,9 @@ export class GameBoardComponent {
   round?: Round;
 
 
-  keyboard: string[] = AZERTY_KEYBOARD;
+  firstRowKeyboard: string[] = AZERTY_KEYBOARD.slice(0, 10);
+  secondRowKeyboard: string[] = AZERTY_KEYBOARD.slice(10, 19);
+  thirdRowKeyboard: string[] = AZERTY_KEYBOARD.slice(20, 26);
 
   constructor( private _roundService: RoundService, private _activatedRoute: ActivatedRoute) {
     this._paramsSubscription = this._activatedRoute.paramMap.subscribe(paramMap => {
