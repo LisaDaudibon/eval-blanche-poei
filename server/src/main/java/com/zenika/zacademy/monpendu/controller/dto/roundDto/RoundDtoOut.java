@@ -16,4 +16,5 @@ public class RoundDtoOut {
     private List lettersSearched;
     private int attempt;
     private String state;
+    private String gameDescription;
 }

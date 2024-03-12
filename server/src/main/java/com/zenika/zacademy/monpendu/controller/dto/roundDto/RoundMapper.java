@@ -18,6 +18,7 @@ public class RoundMapper {
                 .roundWord(from.getRoundWord())
                 .lettersSearched(from.getLettersSearched())
                 .state(from.getState())
+                .gameDescription(from.getGame().getDescription())
                 .build();
     }
 
