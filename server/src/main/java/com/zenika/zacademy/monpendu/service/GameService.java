@@ -29,4 +29,8 @@ public class GameService {
     public UUID createRound (UUID id) throws NotFoundException{
         return this.roundRepository.save(Round.builder().game(this.findById(id)).build()).getId();
     }
+
+    public Game create (Game game) {
+        return this.gameRepository.save(game);
+    }
 }

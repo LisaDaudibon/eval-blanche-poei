@@ -1,5 +1,6 @@
 package com.zenika.zacademy.monpendu.controller;
 
+import com.zenika.zacademy.monpendu.controller.dto.gameDto.GameDtoIn;
 import com.zenika.zacademy.monpendu.controller.dto.gameDto.GameDtoOut;
 import com.zenika.zacademy.monpendu.controller.dto.gameDto.GameMapper;
 import com.zenika.zacademy.monpendu.service.GameService;
@@ -64,5 +65,16 @@ public class GameController {
     public UUID create( @PathVariable UUID id ) throws NotFoundException {
         logger.info("Create a new round");
         return this.gameService.createRound(id);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @Operation(summary = "Create a new game")
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode = "200", description = "The game created", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = GameDtoOut.class))}),
+//            @ApiResponse(responseCode = "400", description = "Invalid game object supplied", content = @Content),
+//    })
+    @PostMapping
+    public GameDtoOut create (@RequestBody GameDtoIn game) {
+        return this.gameMapper.toDto(this.gameService.create(this.gameMapper.toModel(game)));
     }
 }

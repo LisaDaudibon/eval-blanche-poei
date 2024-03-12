@@ -11,4 +11,11 @@ public class GameMapper {
                 .description(from.getDescription())
                 .build();
     }
+
+    public Game toModel (GameDtoIn from) {
+        return Game.builder()
+                .wordToGuess(from.getWordToGuess())
+                .description(from.getDescription())
+                .build();
+    }
 }
