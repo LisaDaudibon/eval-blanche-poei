@@ -2,12 +2,24 @@
 <div class="card-header">
   <h1 class="card-title text-primary">Partie n°{{ round.id }}</h1>
 </div>
-<div class="card-body text-center">
-  <p class="card-text">Partie: {{ setStateInFrench(round) }}</p>
+<div class="card-body text-center text-dark">
+  <p class="card-text">
+    <span class="text-primary-emphasis"><strong>Partie: </strong></span>
+    <strong>{{ setStateInFrench(round) }}</strong>
+  </p>
+  <p class="card-text">
+    <span class="text-primary-emphasis"><strong>Description de la partie : </strong></span>
+    {{ round.gameDescription }}
+  </p>
+
+  <p class="card-text text-primary-emphasis"><strong> Mot recherché : </strong></p>
+  <p class="card-text">{{ round.roundWord }}</p>
 
   <ng-container *ngIf="round.state === 'ONGOING'">
-    <p class="card-text">{{ round.roundWord }}</p>
-    <p class="card-text">Nombres d'essais restant: {{ round.attempt }}/10</p>
+    
+    <p class="card-text"><span class="text-primary-emphasis"><strong> Nombres d'essais restants: </strong></span>
+      {{ round.attempt }}/10
+    </p>
 
     <svg height="250" width="200">
       <!-- Draw the gallows -->
@@ -37,7 +49,7 @@
     </svg>
   
 
-    <p class="card-text my-4">Lettres déjà recherchées:</p>
+    <p class="card-text my-4 text-primary-emphasis"><strong> Lettres déjà recherchées: </strong></p>
     <p class="btn btn-danger rounded-pill px-4 py-2" id="letters-searched"> {{ round.lettersSearched }}</p>
   </ng-container>
 
