@@ -16,4 +16,8 @@ export class RoundService {
   fetchRound (roundId: string): Observable<Round>{
     return this._httpClient.get<Round>(`/api/rounds/${roundId}`)
   }
+  
+  postLettersToRound (roundId: string, letter: string) : Observable<Round>{
+    return this._httpClient.post<Round>(`/api/rounds/${roundId}/searched/${letter}`, {})
+  }
 }

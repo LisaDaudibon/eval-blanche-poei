@@ -1,3 +1,3 @@
 export class Round {
-  constructor(public id: string, public attempt: number, public lettersAnswered: string[], public state: string, public wordGuessed: string) {}
+  constructor(public id: string, public attempt: number, public lettersSearched: string[], public state: string, public roundWord: string) {}
 }
