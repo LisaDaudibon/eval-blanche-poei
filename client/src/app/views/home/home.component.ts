@@ -13,7 +13,6 @@ import { Round } from '../../models/round';
 })
 export class HomeComponent {
   $fetchedGames: Observable<Game[]>;
-  $fetchedGame: Observable<Game>;
   roundId!: string;
   roundState!:string;
   $fetchedRounds: Observable<Round[]>;
@@ -21,7 +20,6 @@ export class HomeComponent {
 
   constructor( private _gameService: GameService, private _roundService: RoundService, private _router: Router) { 
     this.$fetchedGames = this._gameService.$fetchGames
-    this.$fetchedGame = this._gameService.fetchGameById('e40f7f5b-beda-4025-97d8-d047f5806083');
     this.$fetchedRounds = this._roundService.$fetchRounds
   }
 
@@ -49,23 +47,5 @@ export class HomeComponent {
         this._router.navigateByUrl(`rounds/${roundId}`)
       }
     })
-    
   }
-
-
-  // launchAGame (gameId: string) : Promise<boolean> {
-  //   // let roundCreated: Round;
-  //   // this._gameService.createRoundById(gameId)
-  //   // this.$fetchedRound.pipe(
-  //   //   tap((round) => roundCreated = round)
-  //   // )
-  //   let roundCreatedId: string ="";
-  //   this._gameService.createRoundById(gameId)
-  //     .pipe(tap((round) => roundCreatedId = round))
-  //   let roundCreated: Round;
-  //   this._roundService.fetchRound(roundCreatedId)
-  //     .pipe(tap((round) => roundCreated = round))
-    
-  //   return this.router.navigateByUrl(`/api/round/${roundCreated.id}`)
-  // }
 }
