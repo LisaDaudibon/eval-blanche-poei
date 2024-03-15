@@ -9,6 +9,7 @@ public class GameMapper {
         return GameDtoOut.builder()
                 .id(from.getId())
                 .description(from.getDescription())
+                .createdBy(from.getCreatedBy())
                 .build();
     }
 

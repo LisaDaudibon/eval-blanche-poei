@@ -12,4 +12,5 @@ import java.util.UUID;
 public class GameDtoOut {
     private UUID id;
     private String description;
+    private String createdBy;
 }

@@ -6,6 +6,8 @@ import com.zenika.zacademy.monpendu.service.exception.NotFoundException;
 import com.zenika.zacademy.monpendu.service.model.Game;
 import com.zenika.zacademy.monpendu.service.model.Round;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,6 +33,8 @@ public class GameService {
     }
 
     public Game create (Game game) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        game.setCreatedBy(authentication.getName());
         return this.gameRepository.save(game);
     }
 }
