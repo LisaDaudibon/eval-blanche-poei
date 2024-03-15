@@ -7,7 +7,8 @@ import { NewGameComponent } from './views/new-game/new-game.component';
 const routes: Routes = [
   {path: "", component: HomeComponent},
   {path:"rounds/:id", component: GameBoardComponent},
-  {path: "newgame", component: NewGameComponent}
+  {path: "newgame", component: NewGameComponent},
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

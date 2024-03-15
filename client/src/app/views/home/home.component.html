@@ -3,7 +3,7 @@
 <div class="text-center ">
   <h2 class="btn btn-primary rounded-pill" routerLink="/newgame">Créer un jeu </h2> 
 </div>
-*
+
 <h2>Créer une partie</h2>
 <p class="row" >
   <ng-container *ngFor="let game of $fetchedGames | async; trackBy: trackByGameId">
@@ -19,7 +19,7 @@
     <ng-container *ngIf="round.state === 'ONGOING'">
       <div class="col-4">
         <button class="btn btn-primary rounded-pill mx-4 my-2" (click)="redirectToRound(round.id)">
-          {{round.id}}
+          {{round.gameDescription}}
         </button> 
       </div>
     </ng-container>
