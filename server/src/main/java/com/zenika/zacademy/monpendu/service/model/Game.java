@@ -30,6 +30,10 @@ public class Game {
     @Column(name="description")
     private String description;
 
+    @Column(name="created_by", nullable = false)
+    private String createdBy;
+
+
 //    @OneToMany(mappedBy = "game")
 //    private List<Tip> tips = new ArrayList<>();
 }
