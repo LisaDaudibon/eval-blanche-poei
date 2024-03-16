@@ -23,4 +23,8 @@ export class CreateGameComponent {
   createGame() {
     this.onCreateGame.emit(this.gameCreationForm.value)
   }
+
+  get wordToGuess () {
+    return this.gameCreationForm.get("wordToGuess")!;
+  }
 }

@@ -1,17 +1,17 @@
 <div class="card mt-3">
-  <div class="card-header">Ajout d'un film</div>
+  <div class="card-header">Nouveau jeu</div>
   <div class="card-body">
     <form [formGroup]="gameCreationForm" (submit)="createGame()">
       <div class="mb-2">
         <label class="form-label" for="wordToGuess">Mot à deviner</label>
         <input formControlName="wordToGuess" class="form-control" name="wordToGuess" type="text" style="color:black"/>
-        <!-- <p *ngIf="wordToGuess.invalid">Le champs titre est obligatoire</p> -->
+        <p *ngIf="wordToGuess.invalid">Le champs titre est obligatoire</p>
       </div>
       <div class="mb-2">
         <label class="form-label" for="description">Description</label>
         <input formControlName="description" class="form-control" name="description" type="text" style="color:black"/>
       </div>
-      <button type="submit" class="btn btn-primary rounded-pill" [disabled]="gameCreationForm.invalid">Submit</button>
+      <button type="submit" class="btn btn-primary rounded-pill" [disabled]="gameCreationForm.invalid">Crée ton jeu</button>
     </form>
   </div>
 </div>
