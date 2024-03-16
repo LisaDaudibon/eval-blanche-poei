@@ -1,0 +1,24 @@
+<div class="card mt-3">
+  <div class="card-header">Se connecter</div>
+  <div class="card-body">
+    <form [formGroup]="loginForm" (keyup.enter)="submit()" (submit)="submit()">
+      <div class="mb-2">
+        <label class="form-label" for="username">Nom d'utilisateur</label>
+        <input formControlName="username" class="form-control" name="username" type="text" style="color:black"/>
+      </div>
+      <div class="mb-2">
+        <label class="form-label" for="password">Mot de passe</label>
+        <input formControlName="password" class="form-control" name="password" type="text" style="color:black"/>
+      </div>
+      <button type="submit" class="btn btn-primary rounded-pill" [disabled]="loginForm.invalid">Se connecter</button>
+
+      @if(errors) {
+        <div class="mb-2">
+          @for (error of errors; track error) {
+            <p>{{error}}</p>
+          }
+        </div>
+      }
+    </form>
+  </div>
+</div>

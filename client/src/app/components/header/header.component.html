@@ -13,6 +13,17 @@
           <li class="nav-item d-flex">
             <a class="nav-link active me-sm-2" routerLink="/newgame">Créer un jeu</a>
           </li>
+
+          <li class="nav-item d-flex">
+            <a class="nav-link active me-sm-2" routerLink="/admin">Administrateur </a>
+          </li>
+
+          @if($user | async){
+          <li class="nav-item d-flex">
+            <a class="nav-link active me-sm-2" (click)="logout" routerLink="/login">Se déconnecter</a>
+          </li>
+          }
+
         </ul>
       </div>
     </div>

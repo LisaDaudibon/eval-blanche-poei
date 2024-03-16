@@ -14,6 +14,8 @@ import { RoundCardComponent } from './components/round-card/round-card.component
 import { CreateGameComponent } from './components/create-game/create-game.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewGameComponent } from './views/new-game/new-game.component';
+import { LoginComponent } from './views/login/login.component';
+import { AdminComponent } from './views/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { NewGameComponent } from './views/new-game/new-game.component';
     KeyBoardButtonComponent,
     RoundCardComponent,
     CreateGameComponent,
-    NewGameComponent
+    NewGameComponent,
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
