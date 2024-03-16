@@ -30,7 +30,7 @@ public class Game {
     @Column(name="description")
     private String description;
 
-    @Column(name="created_by", nullable = false)
+    @Column(name="created_by", nullable = false, length = 50)
     private String createdBy;
 
 

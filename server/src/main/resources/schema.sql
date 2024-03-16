@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS game (
     id UUID default gen_random_uuid() PRIMARY KEY,
     word_to_guess VARCHAR(50) NOT NULL,
     description VARCHAR(255),
-    created_by VARCHAR(255) REFERENCES "user"(username) NOT NULL
+    created_by VARCHAR(50) REFERENCES "user"(username) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS round (

@@ -29,7 +29,7 @@ public class Round {
     private Integer attempt = 0;
 
 
-    @Column(name="letters_searched", nullable = false, length = 30)
+    @Column(name="letters_searched", nullable = false, length = 50)
     @Convert(converter = SearchLettersConverter.class)
     @Builder.Default
     private List<String> lettersSearched = new ArrayList<>();
